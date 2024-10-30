@@ -9,6 +9,8 @@ notas.push(5);
 notas.push(7);
 notas.push(8);
 
+// notas.pop() remove o último
+
 // alternando nota de indice 1 para 7
 notas[1] = 7;
 
