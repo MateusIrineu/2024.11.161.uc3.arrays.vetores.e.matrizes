@@ -5,21 +5,22 @@ deve retornar { min: 1, max: 9 }.*/
 const prompt = require('prompt-sync')();
 
 function minMax(...numbers) {
-    let arrayNumbers = [...numbers];
-    let newArrayNumbers = arrayNumbers [0];
+    let max = numbers[0]; // Inicializa o maior número com o primeiro valor
+    let min = numbers[0]; // Inicializa o menor número com o primeiro valor
 
-    for (let i = 0; i < arrayNumbers; i++) {
-        arrayNumbers.push(i);
-        if (arrayNumbers[i] > newArrayNumbers[0]) {
-            newArrayNumbers = arrayNumbers[i];
-
-        } else if (arrayNumbers[i] < newArrayNumbers[0]) {
-            newArrayNumbers = arrayNumbers[i];
+    for (let i = 1; i < numbers.length; i++) { // Começa do índice 1, pois o índice 0 já foi inicializado
+        if (numbers[i] > max) {
+            max = numbers[i]; // Atualiza o maior número
+        } else if (numbers[i] < min) {
+            min = numbers[i]; // Atualiza o menor número
         }
-        return newArrayNumbers;
     }
+
+    return {min, max}; // Retorna um objeto com o menor e o maior número
 }
 
-const numbers = parseInt(prompt(`Digite os números para saber o menor e o maior: `));
+// Leitura dos números, separando por espaço e convertendo para array de números
+const input = prompt('Digite os números para saber o menor e o maior, separados por espaço: ');
+const numbers = input.split(' ').map(num => parseInt(num));
 
 console.log(minMax(...numbers));
