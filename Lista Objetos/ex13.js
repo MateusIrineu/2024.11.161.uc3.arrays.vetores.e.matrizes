@@ -9,6 +9,16 @@ diretor, ano e atores.*/
 const filme = {
     titulo: "Filme sem nome",
     diretor: "Irineu",
-    ano: 1997
+    ano: 1997,
+    atores: {
+        ator1: "fulano",
+        ator2: "cricrano",
+        ator3: "semIdea"
+    }
 }
 
+const descricaoCompleta = function(filme) {
+    return filme;
+}
+
+console.log(descricaoCompleta(filme));
